@@ -18,7 +18,7 @@ module.exports = {
       quantity: {
         type: Sequelize.INTEGER
       },
-      url: {
+      external: {
         type: Sequelize.STRING,
         defaultValue: ""
       },
