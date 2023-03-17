@@ -24,6 +24,12 @@ app.use('/', indexRouter);
 const partsRouter = require('./routes/parts')
 app.use('/spare-parts', partsRouter)
 
+const manifests = require('./routes/manifests')
+app.use('/manifests', manifests)
+
+const documents = require('./routes/documents')
+app.use('/documents', documents)
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
