@@ -76,13 +76,16 @@ router.get("/:id/docs", async function (req, res, next) {
         res.sendStatus(404)
     }
     let docs = manifests[0].docs
-    let documents = await Document.findAll({
-        where: {
-            id: {
-                [Op.or]: docs
+    let documents = []
+    if (docs.length) {
+        documents = await Document.findAll({
+            where: {
+                id: {
+                    [Op.or]: docs
+                }
             }
-        }
-    })
+        })
+    }
     res.setHeader('Content-Type', 'application/json')
     res.send(JSON.stringify(documents))
 })
