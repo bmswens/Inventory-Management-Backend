@@ -57,7 +57,7 @@ router.post('/:id', async function (req, res, next) {
 })
 
 router.post('/:id/completed', async function (req, res, next) {
-    Manifest.update({completed: true}, {
+    await Manifest.update({completed: true}, {
         where: {
             id: req.params.id
         }
