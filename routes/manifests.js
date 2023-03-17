@@ -38,6 +38,8 @@ router.post('/:id/addDocument', async function (req, res, next) {
     }
     let docs = manifests[0].docs
     let documentId = req.body.id
+    console.log(docs)
+    console.log(documentId)
     let newDocs = [...docs, documentId]
     Manifest.update({docs: newDocs}, {
         where: {
