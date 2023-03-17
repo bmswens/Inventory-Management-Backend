@@ -41,7 +41,7 @@ router.post('/:id/addDocument', async function (req, res, next) {
     let newDocs = [...docs, documentId]
     Manifest.update({docs: newDocs}, {
         where: {
-            bin: req.params.id
+            id: req.params.id
         }
     })
     res.setHeader('Content-Type', 'application/json')
