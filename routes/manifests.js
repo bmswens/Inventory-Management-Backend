@@ -17,7 +17,7 @@ router.get('/', async function (req, res, next) {
 router.get('/:id', async function (req, res, next) {
     let manifests = await Manifest.findAll({
         where: {
-            bin: req.params.bin
+            id: req.params.id
         }
     })
     if (!manifests.length) {
@@ -30,7 +30,7 @@ router.get('/:id', async function (req, res, next) {
 router.post('/:id/addDocument', async function (req, res, next) {
     let manifests = await Manifest.findAll({
         where: {
-            bin: req.params.bin
+            id: req.params.id
         }
     })
     if (!manifests.length) {
@@ -59,7 +59,7 @@ router.post('/:id', async function (req, res, next) {
 router.post('/:id/completed', async function (req, res, next) {
     Manifest.update({completed: true}, {
         where: {
-            bin: req.params.id
+            id: req.params.id
         }
     })
     res.setHeader('Content-Type', 'application/json')
@@ -69,7 +69,7 @@ router.post('/:id/completed', async function (req, res, next) {
 router.get("/:id/docs", async function (req, res, next) {
     let manifests = await Manifest.findAll({
         where: {
-            bin: req.params.bin
+            id: req.params.id
         }
     })
     if (!manifests.length) {

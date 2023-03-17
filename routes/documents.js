@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/:id', async function (req, res, next) {
     let documents = await Document.findAll({
         where: {
-            bin: req.params.bin
+            id: req.params.id
         }
     })
     if (!documents.length) {
