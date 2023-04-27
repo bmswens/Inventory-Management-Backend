@@ -30,6 +30,9 @@ app.use('/manifests', manifests)
 const documents = require('./routes/documents')
 app.use('/documents', documents)
 
+const kit = require('./routes/kit')
+app.use('/kits', kit)
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
